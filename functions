@@ -1,0 +1,6 @@
+# load all files from .dotfiles/ directory
+if [ -d $HOME/.dotfiles ]; then
+    for file in $HOME/.dotfiles/.*; do
+	source $file
+    done
+fi

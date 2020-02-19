@@ -1,0 +1,8 @@
+# Add initialisation scripts to this file
+# when there is a system change it should happen across all the systems 
+
+# TODO: add automatic symplink to homedirectory
+source ~/.alias
+
+# use of night shift feature on linux
+redshift -O 5000
