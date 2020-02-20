@@ -2,7 +2,11 @@
 # when there is a system change it should happen across all the systems 
 
 # TODO: add automatic symplink to homedirectory
-source ~/.alias
+source ~/.dotfiles/.alias
+
+if [ ! -h ~/.vimrc ]; then
+    ln -s $HOME/.dotfiles/.vimrc $HOME/.vimrc
+fi
 
 # use of night shift feature on linux
 redshift -O 5000
