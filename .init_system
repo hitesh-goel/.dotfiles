@@ -9,4 +9,7 @@ if [ ! -h ~/.vimrc ]; then
 fi
 
 # use of night shift feature on linux
-redshift -O 5000
+redshift -O 5500
+
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
