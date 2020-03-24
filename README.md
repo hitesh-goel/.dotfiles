@@ -9,3 +9,4 @@ Download Linux Anki setup and use following Addons
 - 613684242
 - 1237621971
 - 1410276506
+- 1030875226
