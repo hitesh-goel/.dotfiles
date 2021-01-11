@@ -7,9 +7,3 @@ source ~/.dotfiles/.alias
 if [ ! -h ~/.vimrc ]; then
     ln -s $HOME/.dotfiles/.vimrc $HOME/.vimrc
 fi
-
-# use of night shift feature on linux
-redshift -O 5500
-
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
