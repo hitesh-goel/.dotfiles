@@ -1,0 +1,18 @@
+export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
+# export LDFLAGS="-L/opt/homebrew/opt/sqlite/lib"
+# export CPPFLAGS="-I/opt/homebrew/opt/sqlite/include"
+# export PKG_CONFIG_PATH="/opt/homebrew/opt/sqlite/lib/pkgconfig"
+export PATH="/opt/homebrew/opt/tcl-tk/bin:$PATH"
+# export LDFLAGS="-L/opt/homebrew/opt/tcl-tk/lib"
+# export CPPFLAGS="-I/opt/homebrew/opt/tcl-tk/include"
+# export PKG_CONFIG_PATH="/opt/homebrew/opt/tcl-tk/lib/pkgconfig"
+# export XML_CATALOG_FILES="/opt/homebrew/etc/xml/catalog"
+export PATH="/opt/homebrew/opt/gnu-getopt/bin:$PATH"
+# This issue was facaed mostly due to M1 chips supporting arm64 chips.
+# output of `brew info libffi` command
+# For compilers to find libffi you may need to set:
+export LDFLAGS="-L/opt/homebrew/opt/libffi/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/libffi/include"
+
+# For pkg-config to find libffi you may need to set:
+export PKG_CONFIG_PATH="/opt/homebrew/opt/libffi/lib/pkgconfig"
