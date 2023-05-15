@@ -15,14 +15,20 @@ alias m='git merge origin/master'
 alias rb='git fetch origin && git rebase -i origin/master'
 
 # shortcuts
-alias ll='ls -lh'
+alias ll='ls -alh'
 alias ws='cd $HOME/Documents/workspace/'
 alias ek='cd $HOME/Documents/workspace/ekanek'
+alias ud='cd $HOME/Documents/workspace/udacity'
+alias tup='cd $HOME/Documents/workspace/thredup'
+alias tup3='cd $HOME/Documents/workspace/thredup/thredup-dev/apps/thredUP3'
 alias hg='cd $HOME/Documents/workspace/hitesh-goel/'
+alias fire='cd $HOME/Documents/workspace/hitesh-goel/fire'
 
 # services
 alias md='make dc-down'
 alias mu='make dc-up'
+alias ma='make app-bash'
+alias mdb='make dc-db'
 alias pg_start='brew services start postgresql'
 alias pg_stop='brew services stop postgresql'
 alias pg_restart='brew services restart postgresql'

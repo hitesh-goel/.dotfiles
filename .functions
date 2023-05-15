@@ -1,0 +1,59 @@
+# functions
+
+cpm() {
+  git checkout master
+  git pull origin master
+}
+
+aws_login() {
+  tsh app login --aws-role arn:aws:iam::720913919698:role/saml_dev_team tup
+}
+
+tu3_read_util() {
+  tsh kube login production.red
+  POD_NAME=$(kubectl get pods -n util -l role=util,app=thredup3 -o jsonpath="{.items[0].metadata.name}");
+  kubectl exec -it -n util $POD_NAME -c thredup3-util -- bash
+}
+
+fire_app() {
+  northflank exec service --projectId fire --serviceId fire-app
+}
+
+get_pods() {
+  kubectl get pods -n selfoss -o name | grep "$1"
+}
+
+kubectl_exec() {
+  kubectl exec -it -n selfoss $1 -- bash
+}
+
+stg_pod() {
+  output=$(get_pods "$1")
+  filtered_output=$(echo "$output" | grep "$2" | grep -v -e "sidekiq" -e "sneakers")
+  echo "$filtered_output"
+  kubectl_exec "$filtered_output"
+}
+
+stg_exec_tup3_pod() {
+  stg_pod "$1" "thredup3"
+}
+
+stg_exec_fah_pod() {
+  stg_pod "$1" "financial-accounting-hub"
+}
+
+stg_exec_pod() {
+  if [ $1="fah" ]
+  then
+    local pod_name="financial-accounting-hub"
+  else
+    local pod_name="thredup3"
+  fi
+
+  stg_pod "$2" "$pod_name"
+}
+
+stg_log_pod() {
+  kubectl -n selfoss logs -f --tail=20 $1
+}
+

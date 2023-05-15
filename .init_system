@@ -3,6 +3,7 @@
 
 # TODO: add automatic symplink to homedirectory
 source ~/.dotfiles/.alias
+source ~/.dotfiles/.functions
 
 if [ ! -h ~/.vimrc ]; then
     ln -s $HOME/.dotfiles/.vimrc $HOME/.vimrc
