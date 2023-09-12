@@ -9,10 +9,15 @@ aws_login() {
   tsh app login --aws-role arn:aws:iam::720913919698:role/saml_dev_team tup
 }
 
-tu3_read_util() {
+tup3_read_util() {
   tsh kube login production.red
   POD_NAME=$(kubectl get pods -n util -l role=util,app=thredup3 -o jsonpath="{.items[0].metadata.name}");
   kubectl exec -it -n util $POD_NAME -c thredup3-util -- bash
+}
+
+redshift_login() {
+  tsh login --proxy=teleport-cluster.internal.thredup.com
+  tsh db login --db-user=iam_read_only --db-name=prodshop tup-dw-hub
 }
 
 fire_app() {
@@ -43,17 +48,29 @@ stg_exec_fah_pod() {
 }
 
 stg_exec_pod() {
-  if [ $1="fah" ]
-  then
-    local pod_name="financial-accounting-hub"
-  else
-    local pod_name="thredup3"
-  fi
-
-  stg_pod "$2" "$pod_name"
+  kubectl exec -it -n selfoss $1 -- bash
 }
 
 stg_log_pod() {
   kubectl -n selfoss logs -f --tail=20 $1
+}
+
+dyn_stag_tup3() {
+  cd $HOME/Documents/workspace/thredup/charts
+  output=$(git branch --show-current)
+  echo "$output"
+  stg_exec_tup3_pod "$output"
+}
+
+dyn_stag_fah() {
+  cd $HOME/Documents/workspace/thredup/charts
+  output=$(git branch --show-current)
+  echo "$output"
+  stg_exec_fah_pod "$output"
+}
+
+gitpush() {
+  output=$(git branch --show-current)
+  git push origin "$output"
 }
 
