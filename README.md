@@ -2,12 +2,8 @@
 
 ## Anki Setup
 Download Linux Anki setup and use following Addons
-- 153625306
-- 295889520
-- 318752047
-- 498789867
-- 613684242
-- 1237621971
-- 1410276506
-- 1030875226
-- 385888438
+- 295889520 (Mini Format Pack)
+- 318752047 (Add Hyperlink)
+- 613684242 (True Retention on Stats Page)
+- 1237621971 (Add Table)
+- 1030875226 (Auto Markdown)
